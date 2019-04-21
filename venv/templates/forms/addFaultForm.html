@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/w3.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
+<!-- macro-->
+    {% macro form_field_select(field) %}
+    {{ field.label }}
+    {{ field(**kwargs) }}
+    {% endmacro %}
+<!--block-->
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+
+    <div class=" form-inline">
+        {{ form_field_select(form.hospital,class="form-control") }}
+        {{ form_field_select(form.components,class="form-control") }}
+        {{ form_field_select(form.staff,class="form-control") }}
+        {{ form_field_select(form.faultTime,class="form-control") }}
+    </div>
+    <br>
+    <div class="form-group">
+        {{ form_field_select(form.describe,class="form-control",row=3) }}
+    </div>
+    <div class="form-group">
+        {{ form_field_select(form.solution,class="form-control",row=3) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_field_select(form.reasion,class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form_field_select(form.progress,class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form_field_select(form.remark,class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class='btn btn-lg btn-primary btn-block') }}
+    </div>
+</form>
+{% endblock %}
+

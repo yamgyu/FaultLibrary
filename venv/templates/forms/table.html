@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <th>Hospital</th>
+        <th>Component</th>
+        <th>Fault</th>
+        <th>Staff</th>
+    </tr>
+{% for hospital in hospitals %}
+    {% for fault in hospital.fault %}
+        <tr>
+            <td>{{ hospital.name }}</td>
+            <td>{{ fault.component.name }}</td>
+            <td>{{ fault.name }}</td>
+            <td>{{ fault.staff.name }}</td>
+        </tr>
+    {% endfor %}
+{% endfor %}
+</table>
+{% endblock %}

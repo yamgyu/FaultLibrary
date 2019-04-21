@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/w3.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}"/>
+<!-- macro-->
+    {% macro form_field_select(field) %}
+    {{ field.label }}
+    {{ field(**kwargs) }}
+    {% endmacro %}
+<!-- block -->
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+    <div class="form-inline">
+        {{ form.hospital(class="form-control") }}
+        {{ form.submitHospital(class="form-control btn-default") }}
+    </div>
+    <br>
+</form>
+<form method="post">
+    <div class="form-inline">
+        {{ form.components(class="form-control") }}
+        {{ form.submitComponents(class="form-control btn-default") }}
+    </div>
+</form >
+<form method="post">
+    <br>
+    <div class="form-inline">
+        {{ form.staff(class="form-control") }}
+        {{ form.submitStaff(class="form-control btn-default") }}
+    </div>
+</form>
+</form>
+{% endblock %}

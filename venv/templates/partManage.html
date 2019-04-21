@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <th>Hospital</th>
+        <th>options</th>
+    </tr>
+{% for hospital in hospitals %}
+        <tr>
+            <td>{{ hospital.name }}</td>
+            <td><button class="button"></button>change<button class="button">delete</button></td>
+        </tr>
+{% endfor %}
+</table>
+{% endblock %}
